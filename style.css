@@ -1,0 +1,73 @@
+/* Base styling (same as before) */
+body {
+   margin: 0;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-family: Ubuntu, Arial, sans-serif;
+   color: papayawhip;
+   text-align: center;
+   position: relative;
+   overflow: hidden;
+   transition: background 1.2s ease;
+}
+
+/* subtle overlay */
+#overlay {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.15);
+}
+
+#container {
+   position: relative;
+   width: 80%;
+   max-width: 1000px;
+   z-index: 2;
+}
+
+/* Responsive text scaling */
+#time-left {
+   font-size: clamp(1.2rem, 5vw, 3.2rem);
+   font-weight: 600;
+   margin-bottom: 25px;
+   white-space: nowrap; /* prevent wrapping */
+}
+
+#progress-container {
+   width: 100%;
+   height: 10px;
+   background: rgba(255, 255, 255, 0.3);
+   border-radius: 50px;
+   overflow: hidden;
+   margin-bottom: 25px;
+}
+
+/*#progress-bar {
+   height: 100%;
+   width: 0%;
+   border-radius: 50px;
+   background: linear-gradient(90deg, #3fb578, #f9d423, #ff4e50);
+   transition: width 1.5s ease-out;
+}*/
+
+#progress-bar {
+   height: 100%;
+   width: 0%;
+   border-radius: 50px;
+   background: linear-gradient(90deg, #3fb578 0%, #f9d423 50%, #ff4e50 100%);
+   background-size: 300% 100%; /* make gradient 3x wider */
+   background-position: left center; /* start from left */
+   transition:
+      width 1.5s ease-out,
+      background-position 1.5s ease-out;
+}
+
+/* quote style */
+#quote {
+   font-size: clamp(1rem, 3vw, 2rem);
+   opacity: 0.9;
+   white-space: nowrap; /* prevent wrapping */
+}
