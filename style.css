@@ -71,3 +71,9 @@ body {
    opacity: 0.9;
    white-space: nowrap; /* prevent wrapping */
 }
+#percent {
+   font-size: 1.3rem;
+   margin-bottom: 20px;
+   opacity: 0.9;
+   font-weight: 500;
+}

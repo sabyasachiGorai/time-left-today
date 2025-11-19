@@ -4,7 +4,7 @@ function updateTimeLeft() {
    const endOfDay = new Date();
 
    // User’s custom day-end time (e.g., 22:51 or 02:00)
-   endOfDay.setHours(23, 59, 59, 999);
+   endOfDay.setHours(22, 59, 59, 999);
 
    // If the time has passed, move endOfDay to the next day
    if (endOfDay <= now) {
@@ -47,6 +47,7 @@ function updateProgressBar() {
 
    const progressBar = document.getElementById("progress-bar");
    progressBar.style.width = percent + "%";
+   document.getElementById("percent").innerText ="Day Progress " + Math.floor(percent) + "% - Make The Last Hour Count";
 
    // Dynamically adjust gradient position based on progress
    if (percent < 50) {
