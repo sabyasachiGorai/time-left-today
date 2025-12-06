@@ -1,10 +1,6 @@
----
-
 # ⏳ Time Left Today
 
 A minimal day-progress timer that shows how much time is left today, with a live countdown, progress bar, and time-based background gradients.
-
----
 
 ## ⚡ Load as a Chrome Extension (Developer Mode)
 
@@ -44,3 +40,4 @@ manifest.json
 * Lightweight and minimal UI
 
 ---
+
