@@ -77,3 +77,75 @@ body {
    opacity: 0.9;
    font-weight: 500;
 }
+
+
+/* Charging Text Animation */
+@keyframes pulseText {
+   0% { opacity: 0.4; }
+   50% { opacity: 1; }
+   100% { opacity: 0.4; }
+}
+
+.charging-text {
+   animation: pulseText 2s infinite ease-in-out;
+}
+
+
+/* Charging Bar Breathing Effect */
+@keyframes breatheBar {
+   0% { opacity: 0.6; }
+   50% { opacity: 1; }
+   100% { opacity: 0.6; }
+}
+
+#progress-bar.charging-bar {
+   animation: breatheBar 3s infinite ease-in-out;
+}
+
+/* Battery container */
+#battery {
+   width: 70px;        /* must be fixed */
+   height: 28px;
+   border: 3px solid white;
+   border-radius: 6px;
+   margin: 12px auto;
+   position: relative;
+   overflow: hidden;   /* VERY important */
+}
+
+/* Smooth + aesthetic fill animation */
+@keyframes batteryFill {
+   0% {
+      width: 12%;
+      opacity: 0.7;
+      background: linear-gradient(90deg, #6cff7d, #32ff4e);
+   }
+   25% {
+      width: 28%;
+      opacity: 0.85;
+      background: linear-gradient(90deg, #7dff88, #28f45c);
+   }
+   50% {
+      width: 48%;
+      opacity: 1;
+      background: linear-gradient(90deg, #8aff95, #20df55);
+   }
+   75% {
+      width: 62%;
+      opacity: 0.9;
+      background: linear-gradient(90deg, #78ff89, #33ff63);
+   }
+   100% {
+      width: 75%;
+      opacity: 0.8;
+      background: linear-gradient(90deg, #59ff6e, #00d23f);
+   }
+}
+
+#battery-fill {
+   height: 100%;
+   border-radius: 4px;
+   animation: batteryFill 3s infinite cubic-bezier(0.4, 0.0, 0.2, 1);
+   box-shadow: 0 0 10px #33ff6a80;
+
+}

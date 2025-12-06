@@ -1,12 +1,39 @@
 function updateTimeLeft() {
    const now = new Date();
+   const hour = now.getHours();
 
+   // Check sleeping time: 11 PM (23) to 7 AM (07)
+   // CHARGING MODE TIME WINDOW
+   if (hour >= 23 || hour < 7) {
+      document.getElementById("battery").style.display = "block";
+      // Charging message with animation
+      let timeLeftEl = document.getElementById("time-left");
+      timeLeftEl.innerText = "🔋 Charging… Please Rest ⚡";
+      timeLeftEl.classList.add("charging-text");
+
+      document.getElementById("percent").innerText =
+         "Energy Recharging For Tomorrow";
+
+      // Charging bar breathing animation
+      const progressBar = document.getElementById("progress-bar");
+      progressBar.style.width = "70%";
+      progressBar.style.background = "linear-gradient(90deg, #00eaff, #0072ff)";
+      progressBar.classList.add("charging-bar");
+
+      // Background becomes futuristic electric blue
+      document.body.style.background =
+         "linear-gradient(135deg, #0f2027, #203a43, #2c5364)";
+
+      return;
+   }
+
+
+
+   // NORMAL LOGIC (when day is active)
+   document.getElementById("battery").style.display = "none";
    const endOfDay = new Date();
-
-   // User’s custom day-end time (e.g., 22:51 or 02:00)
    endOfDay.setHours(22, 59, 59, 999);
 
-   // If the time has passed, move endOfDay to the next day
    if (endOfDay <= now) {
       endOfDay.setDate(endOfDay.getDate() + 1);
    }
@@ -34,11 +61,11 @@ function updateProgressBar() {
    const now = new Date();
    // update start of the day
    const startOfDay = new Date();
-   startOfDay.setHours(0, 0, 0, 0);
+   startOfDay.setHours(7, 0, 0, 0);
 
    // update end of the day
    const endOfDay = new Date();
-   endOfDay.setHours(23, 59, 59, 999);
+   endOfDay.setHours(22, 59, 59, 999);
 
    const totalDayMs = endOfDay - startOfDay;
    const elapsedMs = now - startOfDay;
@@ -47,7 +74,7 @@ function updateProgressBar() {
 
    const progressBar = document.getElementById("progress-bar");
    progressBar.style.width = percent + "%";
-   document.getElementById("percent").innerText ="Day Progress " + Math.floor(percent) + "% - Make The Last Hour Count";
+   document.getElementById("percent").innerText ="Day Progress " + Math.floor(percent) + "% - Make The Hours Count";
 
    // Dynamically adjust gradient position based on progress
    if (percent < 50) {
@@ -68,7 +95,8 @@ function updateGradient() {
    let gradient = "";
 
    if (hour >= 5 && hour < 12) {
-      gradient = "linear-gradient(135deg, #FFDEE9, #B5FFFC)"; // morning
+      // gradient = "linear-gradient(135deg, #FFDEE9, #B5FFFC)"; // morning
+      gradient = "linear-gradient(135deg, #758214ff, #588b89ff)"; // morning
    } else if (hour >= 12 && hour < 16) {
       gradient = "linear-gradient(135deg, #89f7fe, #66a6ff)"; // noon
    } else if (hour >= 16 && hour < 19) {
