@@ -32,7 +32,7 @@ function updateTimeLeft() {
    // NORMAL LOGIC (when day is active)
    document.getElementById("battery").style.display = "none";
    const endOfDay = new Date();
-   endOfDay.setHours(22, 59, 59, 999);
+   endOfDay.setHours(23, 59, 59, 999);
 
    if (endOfDay <= now) {
       endOfDay.setDate(endOfDay.getDate() + 1);
@@ -65,7 +65,7 @@ function updateProgressBar() {
 
    // update end of the day
    const endOfDay = new Date();
-   endOfDay.setHours(22, 59, 59, 999);
+   endOfDay.setHours(23, 59, 59, 999);
 
    const totalDayMs = endOfDay - startOfDay;
    const elapsedMs = now - startOfDay;

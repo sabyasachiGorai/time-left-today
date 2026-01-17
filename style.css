@@ -12,6 +12,9 @@ body {
    overflow: hidden;
    transition: background 1.2s ease;
 }
+body {
+   transition: background 0.8s ease-in-out;
+}
 
 /* subtle overlay */
 #overlay {
@@ -148,4 +151,9 @@ body {
    animation: batteryFill 3s infinite cubic-bezier(0.4, 0.0, 0.2, 1);
    box-shadow: 0 0 10px #33ff6a80;
 
+}
+#time-left,
+#percent {
+   color: #ffffff;
+   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
 }
